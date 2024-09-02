@@ -1,1 +1,12 @@
-<p>datagrid works!</p>
+<table cdk-table>
+  @for (column of columns; track column.key){
+  <ng-container cdkColumnDef="{{ column.key }}">
+    <th cdk-header-cell *cdkHeaderCellDef>{{ column.label }}</th>
+    <td cdk-cell *cdkCellDef="let row">{{ row[column.key] }}</td>
+    <!-- <td cdk-footer-cell *cdkFooterCellDef>{{ column.label }}</td> -->
+  </ng-container>
+  }
+
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+</table>
