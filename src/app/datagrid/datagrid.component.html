@@ -1,12 +1,27 @@
 <table cdk-table [dataSource]="dataSource">
   @for (column of columns; track column.key){
   <ng-container cdkColumnDef="{{ column.key }}">
-    <th cdk-header-cell *cdkHeaderCellDef>{{ column.label }}</th>
-    <td cdk-cell *cdkCellDef="let row">{{ row[column.key] }}</td>
-    <!-- <td cdk-footer-cell *cdkFooterCellDef>{{ column.label }}</td> -->
+    <th
+      class="text-left px-4 border-r-2 last:border-r-0"
+      cdk-header-cell
+      *cdkHeaderCellDef
+    >
+      {{ column.label }}
+    </th>
+    <td
+      class="text-left px-4 border-r-2 last:border-r-0"
+      cdk-cell
+      *cdkCellDef="let row"
+    >
+      {{ row[column.key] }}
+    </td>
   </ng-container>
   }
 
-  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+  <tr class="" cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr
+    class="border-t-2"
+    cdk-row
+    *cdkRowDef="let row; columns: displayedColumns"
+  ></tr>
 </table>
