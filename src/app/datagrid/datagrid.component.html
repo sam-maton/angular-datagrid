@@ -1,4 +1,4 @@
-<table cdk-table>
+<table cdk-table [dataSource]="dataSource">
   @for (column of columns; track column.key){
   <ng-container cdkColumnDef="{{ column.key }}">
     <th cdk-header-cell *cdkHeaderCellDef>{{ column.label }}</th>
